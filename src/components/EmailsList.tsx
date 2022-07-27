@@ -14,7 +14,9 @@ export default function EmailsList({
 }: Props) {
   return (
     <ul>
-      <ListItem getFilteredEmails={getFilteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>
+  {
+    ListItem.map(ListItem => <ListItem getFilteredEmails={getFilteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>)
+  }
     </ul>
   );
 }

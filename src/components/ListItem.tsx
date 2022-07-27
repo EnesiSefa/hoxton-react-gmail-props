@@ -6,14 +6,14 @@ type Props = {
   toggleStar: (targetEmail: Email) => void;
 };
 
-export default function Listitem({
+export default function ListItem({
   getFilteredEmails,
   toggleRead,
   toggleStar,
 }: Props) {
   <>
     <ul>
-      {" "}
+      
       return(
       {getFilteredEmails().map((email, index) => (
         <li key={index} className={`email ${email.read ? "read" : "unread"}`}>

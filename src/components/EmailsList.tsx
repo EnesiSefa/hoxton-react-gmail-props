@@ -1,39 +1,20 @@
-type Props= {
+import { Email } from "../data/emails";
+import ListItem from "./ListItem";
 
-}
+type Props = {
+  getFilteredEmails: () => Email[];
+  toggleRead: (targetEmail: Email) => void;
+  toggleStar: (targetEmail: Email) => void;
+};
 
-
-export default function EmailsList (getFilteredEmails : Props){
-   
-   
-    return(
+export default function EmailsList({
+  getFilteredEmails,
+  toggleRead,
+  toggleStar,
+}: Props) {
+  return (
     <ul>
-        {getFilteredEmails().map((email, index) => (
-          <li
-            key={index}
-            className={`email ${email.read ? "read" : "unread"}`}
-          >
-            <div className="select">
-              <input
-                className="select-checkbox"
-                type="checkbox"
-                checked={email.read}
-                onChange={() => toggleRead(email)}
-              />
-            </div>
-            <div className="star">
-              <input
-                className="star-checkbox"
-                type="checkbox"
-                checked={email.starred}
-                onChange={() => toggleStar(email)}
-              />
-            </div>
-            <div className="sender">{email.sender}</div>
-            <div className="title">{email.title}</div>
-          </li>
-        ))}
-      </ul>
-
-    )
+      <ListItem getFilteredEmails={getFilteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>
+    </ul>
+  );
 }

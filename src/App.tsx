@@ -5,7 +5,6 @@ import initialEmails, { Email } from "./data/emails";
 import "./App.css";
 import EmailsList from "./components/EmailsList";
 
-
 const getReadEmails = (emails: Email[]) =>
   emails.filter((email) => !email.read);
 
@@ -99,7 +98,11 @@ function App() {
         </ul>
       </nav>
       <main className="emails">
-       <EmailsList/>
+        <EmailsList
+          getFilteredEmails={getFilteredEmails}
+          toggleRead={toggleRead}
+          toggleStar={toggleStar}
+        />
       </main>
     </div>
   );

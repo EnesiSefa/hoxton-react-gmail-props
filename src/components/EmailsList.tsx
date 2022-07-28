@@ -1,5 +1,5 @@
 import { Email } from "../data/emails";
-import ListItem from "./ListItem";
+import OneEmail from "./OneEmail";
 
 type Props = {
   getFilteredEmails: () => Email[];
@@ -12,11 +12,11 @@ export default function EmailsList({
   toggleRead,
   toggleStar,
 }: Props) {
+  let emails = getFilteredEmails();
+  console.log(emails[2]);
+
   return (
-    <ul>
-  {
-    ListItem.map(ListItem => <ListItem getFilteredEmails={getFilteredEmails} toggleRead={toggleRead} toggleStar={toggleStar}/>)
-  }
-    </ul>
+    <ul>{emails.map((email) => (<OneEmail email={email} toggleRead={toggleRead} toggleStar={toggleStar}/>))} </ul>
   );
 }
+// emails.map(email => <Email />)

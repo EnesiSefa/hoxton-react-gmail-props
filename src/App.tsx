@@ -99,6 +99,7 @@ function App() {
       </nav>
       <main className="emails">
         <EmailsList
+        
           getFilteredEmails={getFilteredEmails}
           toggleRead={toggleRead}
           toggleStar={toggleStar}
